@@ -70,45 +70,32 @@ var config = {
         // PASSARINHO VERMELHO
         // definição do valor da variável "ida" e "volta" com base o ponto x do passarinho vermelho
         if (passarinho.x === 100) {
-            passarinho.ida = true;
-            passarinho.setFlip (false, false);
-            roxo.volta = true;
+            passarinho.ida = true,
+            passarinho.setFlip (false, false),
+            roxo.setFlip (true, false)
         }
 
         // movimentação 1 do pássaro -> horizontal: para a direita / vertical: para cima
         if (passarinho.x < 700 && passarinho.ida === true) { 
-            passarinho.x += 5;
-            passarinho.y -= 3.5
+            passarinho.x += 5,
+            passarinho.y -= 3.5,
+            roxo.x -= 5,
+            roxo.y -= 3.5
         }
 
         // redefinição do valor da variável "ida" e "volta"/ execução do 'flip' no pássaro
         if (passarinho.x === 700) {
-            passarinho.ida = false;
-            passarinho.setFlip(true, false);
-            roxo.volta = false;
+            passarinho.ida = false,
+            passarinho.setFlip(true, false),
+            roxo.setFlip (false, false)
         }
         
         // movimentação 2 do pássaro -> horizontal: para a esquerda / vertical: para baixo
         if (passarinho.x > 100 && passarinho.ida === false) {
-            passarinho.x -= 5;
-            passarinho.y += 3.5
-        }
-
-        // PASSARINHO ROXO
-        // verificação do valor da variável e execução da movimentação e do 'flip' do passarinho roxo
-        while (roxo.volta === true) {
-            roxo.x -= 5,
-            roxo.y -= 3.5
-            roxo.setFlip (true, false)
-            break;
-        }
-
-        // verificação do valor da variável e execução da movimentação do passarinho roxo
-        while (roxo.volta === false) {
+            passarinho.x -= 5,
+            passarinho.y += 3.5,
             roxo.x += 5,
             roxo.y += 3.5
-            roxo.setFlip (false, false)
-            break;
         }
         
     } 
